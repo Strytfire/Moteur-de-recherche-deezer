@@ -1,0 +1,16 @@
+- Placer le dossier "modeLocalTaupe" dans le dossier bin\debug du projet en cours
+  Celui-ci contient les ressources nécessaires (cover, mp3, picture, xml) en cas d'instabilité du site Deezer
+
+- Mettre à jour la dll "Btssio" :
+  . récupérer les derniers fichiers .dll et .xml (documentation de la dll)
+  . les placer dans votre dossier "Bibliotheques" (remplacent les précédents)
+  . référencer la nouvelle dll (remplace la précédente) dans votre projet 
+    (clic droit sur le dossier "Références")
+
+- Dans la méthode Main(), placer l'instruction suivante en cas de connexion Deezer instable :
+DeezerApi.modeLocalTaupe = true;
+
+- En mode local Taupe, toutes les recherches renvoient vers la discographie du super artiste "René la Taupe" ;-)
+
+- Si la connexion est par contre très bonne, vous pouvez récupérer l'ensemble de la discographie (et non les 10 premiers albums seulement par défaut), avec l'instruction suivante :
+DeezerApi.discoComplete = true;

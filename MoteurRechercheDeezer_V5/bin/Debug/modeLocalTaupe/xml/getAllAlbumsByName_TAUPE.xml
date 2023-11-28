@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <data>
+        <album>
+            <id><![CDATA[681980]]>
+            </id>
+            <title><![CDATA[Les Aventures De René La Taupe]]>
+            </title>
+            <cover><![CDATA[http://api.deezer.com/2.0/album/681980/image]]>
+            </cover>
+            <artist>
+                <id><![CDATA[558274]]>
+                </id>
+                <name><![CDATA[René La Taupe]]>
+                </name>
+                <link><![CDATA[http://www.deezer.com/artist/558274]]>
+                </link>
+                <picture><![CDATA[http://api.deezer.com/2.0/artist/558274/image]]>
+                </picture>
+            </artist>
+            <type><![CDATA[album]]>
+            </type>
+        </album>
+        <album>
+            <id><![CDATA[612255]]>
+            </id>
+            <title><![CDATA[Mignon Mignon]]>
+            </title>
+            <cover><![CDATA[http://api.deezer.com/2.0/album/612255/image]]>
+            </cover>
+            <artist>
+                <id><![CDATA[558274]]>
+                </id>
+                <name><![CDATA[René La Taupe]]>
+                </name>
+                <link><![CDATA[http://www.deezer.com/artist/558274]]>
+                </link>
+                <picture><![CDATA[http://api.deezer.com/2.0/artist/558274/image]]>
+                </picture>
+            </artist>
+            <type><![CDATA[album]]>
+            </type>
+        </album>
+        <album>
+            <id><![CDATA[958490]]>
+            </id>
+            <title><![CDATA[Ou La La]]>
+            </title>
+            <cover><![CDATA[http://api.deezer.com/2.0/album/958490/image]]>
+            </cover>
+            <artist>
+                <id><![CDATA[558274]]>
+                </id>
+                <name><![CDATA[René La Taupe]]>
+                </name>
+                <link><![CDATA[http://www.deezer.com/artist/558274]]>
+                </link>
+                <picture><![CDATA[http://api.deezer.com/2.0/artist/558274/image]]>
+                </picture>
+            </artist>
+            <type><![CDATA[album]]>
+            </type>
+        </album>
+        <album>
+            <id><![CDATA[667811]]>
+            </id>
+            <title><![CDATA[Tu Parles Trop]]>
+            </title>
+            <cover><![CDATA[http://api.deezer.com/2.0/album/667811/image]]>
+            </cover>
+            <artist>
+                <id><![CDATA[558274]]>
+                </id>
+                <name><![CDATA[René La Taupe]]>
+                </name>
+                <link><![CDATA[http://www.deezer.com/artist/558274]]>
+                </link>
+                <picture><![CDATA[http://api.deezer.com/2.0/artist/558274/image]]>
+                </picture>
+            </artist>
+            <type><![CDATA[album]]>
+            </type>
+        </album>
+        <album>
+            <id><![CDATA[5956758]]>
+            </id>
+            <title><![CDATA[T'as Vu Ta Tête?]]>
+            </title>
+            <cover><![CDATA[http://api.deezer.com/2.0/album/5956758/image]]>
+            </cover>
+            <artist>
+                <id><![CDATA[558274]]>
+                </id>
+                <name><![CDATA[René La Taupe]]>
+                </name>
+                <link><![CDATA[http://www.deezer.com/artist/558274]]>
+                </link>
+                <picture><![CDATA[http://api.deezer.com/2.0/artist/558274/image]]>
+                </picture>
+            </artist>
+            <type><![CDATA[album]]>
+            </type>
+        </album>        
+    </data>
+    <total><![CDATA[6]]>
+    </total>
+</root>

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9DFD20D4-B2BD-4A94-A1F2-F2E7BE67830F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ZiKnCo_MoteurRechercheDeezer</RootNamespace>
+    <AssemblyName>ZiKnCo_MoteurRechercheDeezer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Btssio">
+      <HintPath>..\..\..\..\bibliotheques\Btssio.dll</HintPath>
+    </Reference>
+    <Reference Include="CDI.IndexCard3D">
+      <HintPath>..\..\..\..\..\..\..\Programme\IndexCards 3D\Component\CDI.IndexCard3D.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmCoverFlow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCoverFlow.Designer.cs">
+      <DependentUpon>FrmCoverFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLecteurMultimedia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLecteurMultimedia.Designer.cs">
+      <DependentUpon>FrmLecteurMultimedia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAPropos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAPropos.Designer.cs">
+      <DependentUpon>FrmAPropos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPlaylist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPlaylist.Designer.cs">
+      <DependentUpon>FrmPlaylist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRechercheAlbums.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRechercheAlbums.Designer.cs">
+      <DependentUpon>FrmRechercheAlbums.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDemarrage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDemarrage.Designer.cs">
+      <DependentUpon>FrmDemarrage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCoverFlow.resx">
+      <DependentUpon>FrmCoverFlow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLecteurMultimedia.resx">
+      <DependentUpon>FrmLecteurMultimedia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAPropos.resx">
+      <DependentUpon>FrmAPropos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPlaylist.resx">
+      <DependentUpon>FrmPlaylist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRechercheAlbums.resx">
+      <DependentUpon>FrmRechercheAlbums.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDemarrage.resx">
+      <DependentUpon>FrmDemarrage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banniere_ZiKnCo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deezer-Embleme.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deezer-Embleme1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deezer_Logo_WhiteColor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\56.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deezer_Logo_WhiteColor %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo_inconnu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

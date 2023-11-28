@@ -1,0 +1,65 @@
+-----------------------------------
+LISTE DES ARTISTES DE NOM "TAUPE" :
+-----------------------------------
+
+getAllArtistsByName_TAUPE.xml : "https://api.deezer.com/2.0/search/artist?q=taupe&output=xml"
+
+---------------------
+DETAIL DES ARTISTES :
+---------------------
+Artiste1 : getDetailsArtistById_558274_TAUPE.xml : "https://api.deezer.com/2.0/artist/558274&output=xml"
+Artiste2 : getDetailsArtistById_1479284_TAUPE.xml : "https://api.deezer.com/2.0/artist/1479284&output=xml"
+Artiste3 : getDetailsArtistById_1468342_TAUPE.xml : "https://api.deezer.com/2.0/artist/1468342&output=xml"
+Artiste4 : getDetailsArtistById_341704_TAUPE.xml : "https://api.deezer.com/2.0/artist/341704&output=xml"
+
+---------------------------------
+ALBUMS DE CHACUN DES 4 ARTISTES :
+---------------------------------
+AlbumsArtiste1 : getAllAlbumsByArtist_558274_TAUPE.xml : "https://api.deezer.com/2.0/artist/558274/albums&output=xml"
+AlbumsArtiste2 : getAllAlbumsByArtist_1479284_TAUPE.xml : "https://api.deezer.com/2.0/artist/1479284/albums&output=xml"
+AlbumsArtiste3 : getAllAlbumsByArtist_1468342_TAUPE.xml : "https://api.deezer.com/2.0/artist/1468342/albums&output=xml"
+AlbumsArtiste4 : getAllAlbumsByArtist_341704_TAUPE.xml : "https://api.deezer.com/2.0/artist/341704/albums&output=xml"
+
+------------------------------------------
+TITRES DES ALBUMS DE L'ARTISTE 1 (558274):
+------------------------------------------
+TitresAlbum1Artiste1 : getAllTracksByAlbum_681980_TAUPE.xml : "https://api.deezer.com/2.0/album/681980/tracks&output=xml"
+TitresAlbum2Artiste1 : getAllTracksByAlbum_5956758_TAUPE.xml : "https://api.deezer.com/2.0/album/5956758/tracks&output=xml"
+TitresAlbum3Artiste1 : getAllTracksByAlbum_626125_TAUPE.xml : "https://api.deezer.com/2.0/album/626125/tracks&output=xml"
+TitresAlbum4Artiste1 : getAllTracksByAlbum_667811_TAUPE.xml : "https://api.deezer.com/2.0/album/667811/tracks&output=xml"
+TitresAlbum5Artiste1 : getAllTracksByAlbum_958490_TAUPE.xml : "https://api.deezer.com/2.0/album/958490/tracks&output=xml"
+
+-------------------------------------------
+TITRES DES ALBUMS DE L'ARTISTE 2 (1479284):
+------------------------------------------
+TitresAlbum1Artiste2 : getAllTracksByAlbum_1340601_TAUPE.xml : "https://api.deezer.com/2.0/album/1340601/tracks&output=xml"
+
+--------------------------------------------
+AUCUN TITRE D'ALBUM DE L'ARTISTE 3 (1468342)
+--------------------------------------------
+
+--------------------------------------------
+AUCUN TITRE D'ALBUM DE L'ARTISTE 4 (341704)
+--------------------------------------------
+
+---------------------
+ARTISTES EN LIAISON :
+---------------------
+
+Artiste1 : getRelatedArtists_558274_TAUPE.xml : "https://api.deezer.com/2.0/artist/558274/related&output=xml"
+Aucun pour les autres artistes
+
+--------------------
+RECHERCHE D'ALBUMS :
+--------------------
+
+getAllAlbumsByName_TAUPE.xml : "https://api.deezer.com/2.0/search/album?q=René la taupe&output=xml"
+Titres ajoutés :
+getAllTracksByAlbum_612255_TAUPE.xml : "https://api.deezer.com/2.0/album/612255/tracks&output=xml"
+
+getDetailsAlbumById_681980_TAUPE.xml : "https://api.deezer.com/2.0/album/681980&output=xml"
+getDetailsAlbumById_612255_TAUPE.xml : "https://api.deezer.com/2.0/album/612255&output=xml"
+getDetailsAlbumById_958490_TAUPE.xml : "https://api.deezer.com/2.0/album/958490&output=xml"
+getDetailsAlbumById_667811_TAUPE.xml : "https://api.deezer.com/2.0/album/667811&output=xml"
+getDetailsAlbumById_5956758_TAUPE.xml : "https://api.deezer.com/2.0/album/5956758&output=xml"
+getDetailsAlbumById_1340601_TAUPE.xml : "https://api.deezer.com/2.0/album/1340601&output=xml"

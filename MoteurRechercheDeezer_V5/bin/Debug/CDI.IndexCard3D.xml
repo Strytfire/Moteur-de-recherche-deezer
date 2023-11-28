@@ -1,0 +1,741 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CDI.IndexCard3D</name>
+    </assembly>
+    <members>
+        <member name="T:CDI.IndexCard3D.Fonts">
+            <summary>
+            Internal class used to store multiple WinFonts and OpenGL font Id's
+            </summary>
+        </member>
+        <member name="T:CDI.IndexCard3D.IC3D">
+            <summary>
+            Index Cards 3D
+            </summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.IC3D.IndexCards">
+            <summary>
+            IndexCards
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.#ctor">
+            <summary>
+            IndexCard 3D container intializing
+            </summary>        
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.AVIFinishedAnimation(System.Object,System.EventArgs)">
+            <summary>
+            AVI video finished animating
+            </summary>
+            <param name="sender">Index card playing the AVI</param>
+            <param name="e">Event Arguments</param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.IndexCardInvalidImageLoad(System.Object,System.EventArgs)">
+            <summary>
+            Image was invalid or not found
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.GLVersion">
+            <summary>
+            Return GL Version
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.GLUVersion">
+            <summary>
+            Return GLU Version
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.Invalidate">
+            <summary>
+            Repaint Control
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.OGLSwapbuffer(System.Object,System.EventArgs)">
+            <summary>
+            Private event used to invalidate the opengl control.  This is bubbled
+            up from the IndexCard object - indexcards doesn't have a direct
+            relationship to IC3D object, so this event is needed
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.OpenGLMouseClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Raise private mouse click event
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.OpenGLMouseDoubleClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Raise private mouse double click event
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.OpenGLMouseEnter(System.Object,System.EventArgs)">
+            <summary>
+            Raise private OnMouseEnter event
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.OpenGLMouseLeave(System.Object,System.EventArgs)">
+            <summary>
+            Raise private OnMouseLeave event
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.OpenGLMouseHover(System.Object,System.EventArgs)">
+            <summary>
+            Raise private OnMouseHover event
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.OpenGLMouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mouse button was pressed store initial location
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.OpenGLMouseUp(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mouse button released, a number of things and happen at this point
+            1) user is finished moving the cards left/right
+            2) user has selected a card
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.RenderCards(CDI.IndexCard3D.OpenGL.GR,System.Boolean,System.Boolean)">
+            <summary>
+            Static drawing return, used to refresh cards, faster than the DrawCardsAnimate routine
+            This is also used to perform color hit testing for mouse selections
+            </summary>
+            <param name="gl"></param>
+            <param name="isReflection"></param>
+            <param name="isHitTest"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.CreateArrayOfPoints(System.Single[0:,0:]@,System.Int32,System.Int32,System.Single,System.Single)">
+            <summary>
+            Create an array of points starting with startPoint and ending with endPoint
+            </summary>
+            <param name="array"></param>
+            <param name="index"></param>
+            <param name="dimensions"></param>
+            <param name="startPoint"></param>
+            <param name="endPoint"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.CreateArrayOfPoints(System.Single[]@,System.Int32,System.Single,System.Single)">
+            <summary>
+            Create an array of points starting with startPoint and ending with endPoint
+            These are floating numbers so we can create -1.0f to 1.0f which would be:
+            {-1.0,-0.9,-0.8...0.8,0.9,1.0}
+            We use static lookup tables (arrays) for animation speed of out prespective textures and vertex.
+            </summary>
+            <param name="array">output array to populate with data</param>
+            <param name="dimensions">Total number of dimensions in the array</param>
+            <param name="startPoint"></param>
+            <param name="endPoint"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.CardUnderMouseCursor">
+            <summary>
+            Get the card under the mouse cursor
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.DrawText(System.Int32,System.Int32,System.String,CDI.IndexCard3D.IC3D.TextAlignment)">
+            <summary>
+            Draw Text to IndexCards control
+            </summary>
+            <param name="x">Horizontal position</param>
+            <param name="y">Vertical position</param>
+            <param name="text">Text to display</param>
+            <param name="textAlignment">Alignment of text</param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.DrawText(System.Int32,System.Int32,System.String,CDI.IndexCard3D.IC3D.TextAlignment,System.Drawing.Font)">
+            <summary>
+            Draw Text to IndexCards control
+            </summary>
+            <param name="x">Horizontal position</param>
+            <param name="y">Vertical position</param>
+            <param name="text">Text to display</param>
+            <param name="textAlignment">Alignment of text</param>
+            <param name="font">Windows font to use, when rendering text</param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.DrawText(System.Int32,System.Int32,System.String,CDI.IndexCard3D.IC3D.TextAlignment,System.Drawing.Font,System.Drawing.Color)">
+            <summary>
+            Draw Text to IndexCards control
+            </summary>
+            <param name="x">Horizontal position</param>
+            <param name="y">Vertical position</param>
+            <param name="text">Text to display</param>
+            <param name="textAlignment">Alignment of text</param>
+            <param name="font">Windows font to use when rendering text</param>
+            <param name="textColor">Color of text</param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.DrawText(System.Single,System.Single,System.String,CDI.IndexCard3D.IC3D.TextAlignment)">
+            <summary>
+            Draw Text to IndexCards control
+            </summary>
+            <param name="x">Horizontal position</param>
+            <param name="y">Vertical position</param>
+            <param name="text">Text to display</param>
+            <param name="textAlignment">Alignment of text</param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.DrawText(System.Single,System.Single,System.String,CDI.IndexCard3D.IC3D.TextAlignment,System.Drawing.Font)">
+            <summary>
+            Draw Text to IndexCards control
+            </summary>
+            <param name="x">Horizontal position</param>
+            <param name="y">Vertical position</param>
+            <param name="text">Text to display</param>
+            <param name="textAlignment">Alignment of text</param>
+            <param name="font">Windows font to use when rendering text</param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.DrawText(System.Single,System.Single,System.String,CDI.IndexCard3D.IC3D.TextAlignment,System.Drawing.Font,System.Drawing.Color)">
+            <summary>
+            Draw Text to IndexCards control
+            </summary>
+            <param name="x">Horizontal position</param>
+            <param name="y">Vertical position</param>
+            <param name="text">Text to display</param>
+            <param name="textAlignment">Alignment of text</param>
+            <param name="font">Windows font to use when rendering text</param>
+            <param name="color">Color of text</param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.RenderEffect(CDI.IndexCard3D.IC3D.Effects)">
+            <summary>
+            Process an effect against the index cards
+            </summary>
+            <param name="effect"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.IC3D.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="E:CDI.IndexCard3D.IC3D.RenderText">
+            <summary>
+            Render Text event
+            </summary>
+        </member>
+        <member name="E:CDI.IndexCard3D.IC3D.IndexCardBeforeSelected">
+            <summary>
+            Index Card before selected event
+            </summary>
+        </member>
+        <member name="E:CDI.IndexCard3D.IC3D.IndexCardAfterSelected">
+            <summary>
+            Index card after selected event
+            </summary>
+        </member>
+        <member name="E:CDI.IndexCard3D.IC3D.IndexCardChanged">
+            <summary>
+            Center Index card changed
+            </summary>
+        </member>
+        <member name="E:CDI.IndexCard3D.IC3D.AVIAnimationFinished">
+            <summary>
+            AVI animation completed
+            </summary>
+        </member>
+        <member name="E:CDI.IndexCard3D.IC3D.InvalidImageLoad">
+            <summary>
+            AVI animation completed
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.FadeToBackgroundColor">
+            <summary>
+            Fade cards out to background color
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.BackColor">
+            <summary>
+            BackColor must be black.
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.DelayTextShow">
+            <summary>
+            Delay showing of text
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.ReflectionSaturation">
+            <summary>
+            Set saturation of reflection
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.CardAngle">
+            <summary>
+            Set angle of cards
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.VerticalCardPosition">
+            <summary>
+            Vertical position of IndexCards
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.Font">
+            <summary>
+            Gets or sets the font to display in the control
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.ForeColor">
+            <summary>
+            Gets or sets the font color in the control
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.CacheLoading">
+            <summary>
+            Gets or sets the font color in the control
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.AnimationSteps">
+            <summary>
+            Number of steps used to move the cards from one location to the next
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.IsInitializing">
+            <summary>
+            Determine if IndexCards are still being initialized
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.DisplayCards">
+            <summary>
+            Number of cards to show on the screen
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.ActiveCard">
+            <summary>
+            Active Index Card
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.BackgroundImage">
+            <summary>
+            Hidden property BackgroundImage (not used)
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.BackgroundImageLayout">
+            <summary>
+            Hidden property BackgroundImageLayout (not used)
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.Text">
+            <summary>
+            Hidden property Text (not used)
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.X">
+            <summary>
+            X axis, moves index cards left and right
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.Y">
+            <summary>
+            Y axis, moves index cards up and down
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IC3D.Z">
+            <summary>
+            Z axis, zooms index cards in and out
+            </summary>
+        </member>
+        <member name="T:CDI.IndexCard3D.IC3D.Effects">
+            <summary>
+            Index card effects
+            </summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.IC3D.Effects.Fadeout">
+            <summary>Fade index card out</summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.IC3D.Effects.Flip">
+            <summary>Flip index card over</summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.IC3D.Effects.Select">
+            <summary>Select index card, flash effect</summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.IC3D.Effects.None">
+            <summary>No effect is active</summary>
+        </member>
+        <member name="T:CDI.IndexCard3D.IC3D.TextAlignment">
+            <summary>
+            Align text
+            </summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.IC3D.TextAlignment.Center">
+            <summary>Center text string</summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.IC3D.TextAlignment.Left">
+            <summary>Left justify string</summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.IC3D.TextAlignment.Right">
+            <summary>Right justify string</summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.IC3D.TextAlignment.None">
+            <summary>No justification is used, actually same as Left</summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.IC3D.VerticalAlignment.Top">
+            <summary>Align cards to top of the screen</summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.IC3D.VerticalAlignment.Center">
+            <summary>Align cards to center of screen</summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.IC3D.VerticalAlignment.Bottom">
+            <summary>Align cards to bottom of screen</summary>
+        </member>
+        <member name="T:CDI.IndexCard3D.IC3D.RenderTextHander">
+            <summary>
+            Render text delegate
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:CDI.IndexCard3D.IC3D.IndexCardSelectedHander">
+            <summary>
+            Index card selected delegate
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:CDI.IndexCard3D.IC3D.IndexCardChangedHander">
+            <summary>
+            Index card changed delegate
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:CDI.IndexCard3D.IndexCardInfo.Card">
+            <summary>
+            Selected index card object
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IndexCardInfo.CursorXY">
+            <summary>
+            Mouse XY position within a card
+            </summary>
+        </member>
+        <member name="T:CDI.IndexCard3D.IndexCardEventArgs">
+            <summary>
+            Index card event arguments
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IndexCardEventArgs.Card">
+            <summary>
+            Selected index card object
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IndexCardEventArgs.SelectedCard">
+            <summary>
+            Active card that was selected
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.IndexCardEventArgs.Cancel">
+            <summary>
+            Cancel card selection event
+            </summary>
+        </member>
+        <member name="T:CDI.IndexCard3D.AVIAnimationFinishedHandler">
+            <summary>
+            AVI animation finished event handler
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:CDI.IndexCard3D.InvalidImageLoadHandler">
+            <summary>
+            Invalid image load handler
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:CDI.IndexCard3D.Cards">
+            <summary>
+            Cards collection class.  Not only does this handle the individual index cards but it
+            is also a texture handler
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.Cards.#ctor(CDI.IndexCard3D.OpenGL.GR)">
+            <summary>
+            Initialize the Cards Collection
+            </summary>
+            <param name="gl"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.Cards.Add(CDI.IndexCard3D.Card)">
+            <summary>
+            Add a Card object to the collection
+            </summary>
+            <param name="value">Card object</param>
+            <returns>Index of to insertion point of object</returns>
+        </member>
+        <member name="M:CDI.IndexCard3D.Cards.AddRange(CDI.IndexCard3D.Card[])">
+            <summary>
+            Add a array of Card objects
+            </summary>
+            <param name="values">Array of Card objects</param>
+        </member>
+        <member name="M:CDI.IndexCard3D.Cards.Remove(CDI.IndexCard3D.Card)">
+            <summary>
+            Remove a Card object from the collection
+            </summary>
+            <param name="value">Card object</param>
+        </member>
+        <member name="M:CDI.IndexCard3D.Cards.Insert(System.Int32,CDI.IndexCard3D.Card)">
+            <summary>
+            Insert a Card object into a specific position in the collection
+            </summary>
+            <param name="index">Position to insert object in collection</param>
+            <param name="value">Card object</param>
+        </member>
+        <member name="M:CDI.IndexCard3D.Cards.Contains(CDI.IndexCard3D.Card)">
+            <summary>
+            Check if Card object exists in collection
+            </summary>
+            <param name="value">Card object</param>
+            <returns>true for success</returns>
+        </member>
+        <member name="M:CDI.IndexCard3D.Cards.IndexOf(CDI.IndexCard3D.Card)">
+            <summary>
+            Position in collection of Card object
+            </summary>
+            <param name="value">Card object</param>
+            <returns>Position where object was found</returns>
+        </member>
+        <member name="M:CDI.IndexCard3D.Cards.Clear">
+            <summary>
+            Dispose of all cards and textures same as calling dispose()
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.Cards.Dispose">
+            <summary>
+            Dispose of all cards and textures same as calling Clear
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.Cards.LoadTexturesToMemory(System.Int32)">
+            <summary>
+            Load a single texture into memory, used with caching option.
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.Cards.LoadTexturesToMemory">
+            <summary>
+            Load textures to memory takes all the Cards and loads the images into a 
+            OpenGL texture.  This is required since we need to know how many textures 
+            exist before loading them to OpenGL.
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.Cards.DisposeTextureMemory">
+            <summary>
+            Unload textures from OpenGL but don't destory the Cards.
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Cards.Item(System.Int32)">
+            <summary>
+            Return an index card
+            </summary>
+            <param name="index"></param>
+            <returns></returns>        
+        </member>
+        <member name="P:CDI.IndexCard3D.Cards.Count">
+            <summary>
+            Total number of Card objects contained in the collection
+            </summary>
+        </member>
+        <member name="T:CDI.IndexCard3D.Card">
+            <summary>
+            Individual index card, including a graphical element
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.Card.#ctor(System.String,System.String,System.Object)">
+            <summary>
+            Initialize a card object
+            </summary>
+            <param name="title"></param>
+            <param name="imagePath"></param>
+            <param name="tag"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.Card.#ctor(System.String,System.String)">
+            <summary>
+            Quickly populate card with default values
+            </summary>
+            <param name="title"></param>
+            <param name="imagePath"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.Card.#ctor(System.String)">
+            <summary>
+            Initialize and set a Title
+            </summary>
+            <param name="title"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.Card.#ctor(System.String,System.Drawing.Bitmap,System.Object)">
+            <summary>
+            Initialize and set a title, image and tag object
+            </summary>
+            <param name="title"></param>
+            <param name="image"></param>
+            <param name="tag"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.Card.#ctor(System.String,System.Drawing.Bitmap)">
+            <summary>
+            Initialize and set the title and image
+            </summary>
+            <param name="title"></param>
+            <param name="image"></param>
+        </member>
+        <member name="M:CDI.IndexCard3D.Card.#ctor">
+            <summary>
+            Initialize Card without any default values
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.Card.PauseAVI">
+            <summary>
+            Pause the AVI video
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.Card.PlayAVI">
+            <summary>
+            Play the AVI video
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Card.TextureId">
+            <summary>
+            Texture Id, internal use only
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Card.Title">
+            <summary>
+            Title to show under a card
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Card.Tag">
+            <summary>
+            Tag object for custom user defined object storage
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Card.IsAvi">
+            <summary>
+            Is card an avi file
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Card.IsAviPlaying">
+            <summary>
+            Determine if an AVI file is currently animating
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Card.CardFace">
+            <summary>
+            Get the side of the card facing the screen
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Card.ImagePath">
+            <summary>
+            Image to display on a card
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Card.BackImagePath">
+            <summary>
+            Image to display on the back of the card
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Card.Image">
+            <summary>
+            Bitmap Image to show
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Card.BackImage">
+            <summary>
+            Bitmap Image to show on the back of the card
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Card.IsEmpty">
+            <summary>
+            Is the card object empty, internal use
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Card.IsTextureLoaded">
+            <summary>
+            Determines if the texture has been loaded to the video card
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.Video.AviStream.Close">
+            <summary>Close the stream</summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Video.AviStream.FilePointer">
+            <summary>Pointer to the unmanaged AVI file</summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Video.AviStream.StreamPointer">
+            <summary>Pointer to the unmanaged AVI Stream</summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.Video.AVIStream.getFrameObject">
+            <summary>handle for AVIStreamGetFrame</summary>
+        </member>
+        <member name="F:CDI.IndexCard3D.Video.AVIStream.frameSize">
+            <summary>size of an imge in bytes, stride*height</summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.Video.AVIStream.#ctor(System.Int32,System.IntPtr)">
+            <summary>Initialize a VideoStream for an existing stream</summary>
+            <param name="aviFile">The file that contains the stream</param>
+            <param name="aviStream">An IAVISTREAM from [aviFile]</param>
+        </member>
+        <member name="M:CDI.IndexCard3D.Video.AVIStream.GetBitmap(System.Int32)">
+            <summary>Export a frame into a bitmap</summary>
+            <param name="position">Position of the frame</param>
+        </member>
+        <member name="M:CDI.IndexCard3D.Video.AVIStream.GetFrameClose">
+            <summary>Free ressources that have been used by GetFrameOpen</summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.Video.AVIStream.GetFrameOpen">
+            <summary>Prepare for decompressing frames</summary>
+            <remarks>
+            This method has to be called before GetBitmap.
+            Release ressources with GetFrameClose.
+            </remarks>
+        </member>
+        <member name="M:CDI.IndexCard3D.Video.AVIPlayer.Initialize">
+            <summary>
+            Initialize the AVI movie, should be the first call made
+            </summary>
+            <returns>Millisecond delay between frames</returns>
+        </member>
+        <member name="M:CDI.IndexCard3D.Video.AVIPlayer.Dispose">
+            <summary>
+            Destroy the AVI movie and release the DLL
+            </summary>
+        </member>
+        <member name="M:CDI.IndexCard3D.Video.AVIPlayer.GetFrame(System.Int32)">
+            <summary>
+            Return a single Bitmap frame
+            </summary>
+            <param name="framePosition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CDI.IndexCard3D.Video.AVIPlayer.GetFirstFrame">
+            <summary>
+            Get the first frame of the movie, used for initial texture
+            before movie starts playing
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CDI.IndexCard3D.Video.AVIPlayer.Stop">
+            <summary>
+            Stop playing AVI file and clean up
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Video.AVIPlayer.FrameCount">
+            <summary>
+            Get the total number of frames for this movie
+            </summary>
+        </member>
+        <member name="P:CDI.IndexCard3D.Video.AVIPlayer.IsPlaying">
+            <summary>
+            Is the AVI file currently playing
+            </summary>
+        </member>
+    </members>
+</doc>
